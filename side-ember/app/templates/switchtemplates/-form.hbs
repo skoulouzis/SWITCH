@@ -1,0 +1,14 @@
+<form {{action "save" on="submit"}}>
+  {{#bs-form-group}}
+      <label class="control-label">Title</label>
+    {{bs-input readonly=model.readonly type="text" value=model.title}}
+  {{/bs-form-group}}
+
+  {{form-icon-select content=sorted_types selectedValue=model.type action=(action (mut model.type))}}
+
+  {{#if model.isNew}}
+    {{bs-button defaultText="Create" type="primary" buttonType="submit"}}
+  {{else}}
+    {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+  {{/if}}
+</form>

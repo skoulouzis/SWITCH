@@ -1,0 +1,10 @@
+{{#if model.editable }}
+  {{graph-picker graph_id=model.id componentTypes=componentTypes showLeftBar="showLeftBarClick" loadGraph="loadGraph" exportGraph="exportGraph" validateGraph="validateGraph" planVirtualInfrastructure="planVirtualInfrastructure" provisionVirtualInfrastructure="provisionVirtualInfrastructure" deployApplication="deployApplication" is_app="True"}}
+{{else}}
+  <style type="text/css">
+  .link-tools .tool-remove { display: none }
+  .link-tools .tool-options { display: none }
+  </style>
+{{/if}}
+
+{{graph-canvas graph_id=model.id graph_editable=model.editable exportGraph="exportGraph" loadGraph="loadGraph" saveGraph="saveGraph" toggleComponentMode="toggleComponentMode" initComponent="initComponent" loadComponent="loadComponent" hideRightBar="hideRightBar" hideLeftBar="hideLeftBar" deleteComponent="deleteComponent" showSshConsole="showSshConsole" addComponentPort="addComponentPort" createLink="createLink" deleteLink="deleteLink" embedInstance="embedInstance"}}

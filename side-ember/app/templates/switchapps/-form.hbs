@@ -1,0 +1,57 @@
+<form {{action "save" on="submit"}}>
+  {{#bs-form-group}}
+      <label class="control-label">Title</label>
+    {{bs-input readonly=model.readonly type="text" value=model.title}}
+  {{/bs-form-group}}
+  {{#bs-form-group}}
+      <label class="control-label">Description</label>
+    {{bs-textarea readonly=model.readonly value=model.description}}
+  {{/bs-form-group}}
+  {{#if model.isNew}}
+    {{#bs-form-group}}
+        <label class="control-label">
+          {{input type="checkbox" checked=model.public_view}} Publicly Viewable
+        </label>
+    {{/bs-form-group}}
+    {{#bs-form-group}}
+        <label class="control-label">
+          {{input type="checkbox" checked=model.public_editable}} Publicly Editable
+        </label>
+    {{/bs-form-group}}
+  {{/if}}
+  {{#bs-form-group}}
+      <label for="orchestrator" class="control-label">Orchestrator</label>
+      <select class="form-control" name="orchestrator">
+          <option>Kubernetes</option>
+          <option>Docker SWARM</option>
+      </select>
+  {{/bs-form-group}}
+  {{#bs-form-group}}
+      <label for="preferred-provider" class="control-label">Desired Providers</label>
+      <select class="form-control" name="preferred-provider" multiple>
+          <option>Google Cloud</option>
+          <option>Ares</option>
+          <option>Flexiop</option>
+          <option>EC2</option>
+          <option>AWS</option>
+      </select>
+  {{/bs-form-group}}
+  {{#if model.belongs_to_user}}
+    {{#bs-form-group}}
+        <label class="control-label">
+          {{input type="checkbox" checked=model.public_view}} Publicly Viewable
+        </label>
+    {{/bs-form-group}}
+    {{#bs-form-group}}
+        <label class="control-label">
+          {{input type="checkbox" checked=model.public_editable}} Publicly Editable
+        </label>
+    {{/bs-form-group}}
+  {{/if}}
+  {{#if model.isNew}}
+    {{bs-button defaultText="Create" type="primary" buttonType="submit"}}
+  {{/if}}
+  {{#if model.editable}}
+    {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+  {{/if}}
+</form>

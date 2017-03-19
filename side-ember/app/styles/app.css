@@ -1,0 +1,9 @@
+[data-ember-action]:not(:disabled) {
+  cursor: pointer;
+}
+
+svg text {
+  font-family: FontAwesome, "Helvetica Neue", Helvetica,Arial, sans-serif;
+  font-size: 100% !important;
+  font-weight: 100 !important;
+}

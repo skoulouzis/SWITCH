@@ -1,0 +1,11 @@
+{{#bs-form-group}}
+    <label for="icon-select" class="control-label">Template</label>
+    <select id="icon-select" class="form-control" {{action 'change' on='change'}}>
+      <option>--Select Component Template--</option>
+      {{#each content key="@index" as |item|}}
+          <option value="{{item.id}}" selected={{is-equal item.id selectedValue.id}}>
+            {{item.title}}
+          </option>
+      {{/each}}
+    </select>
+{{/bs-form-group}}

@@ -1,0 +1,10 @@
+<ul class="nav navbar-left">
+    <li class="navbar-primary">{{#link-to 'switchcomponents'}}<i class="fa fa-cog fa-fw"></i> Components{{/link-to}}</li>
+</ul>
+{{#if model.title}}
+<ul class="nav navbar-top-links navbar-left">
+    <p class="navbar-text"><i class="fa fa-tag fa-fw"></i> <b>{{model.title}}</b></p>
+    {{#if model.belongs_to_user}}<li>{{#link-to 'switchcomponents.edit' model}}<i class="fa fa-list fa-fw"></i> Properties{{/link-to}}</li>{{/if}}
+    <li>{{#link-to 'switchcomponents.composer' model}}<i class="fa fa-pencil fa-fw"></i> Composer{{/link-to}}</li>
+</ul>
+{{/if}}

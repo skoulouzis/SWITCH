@@ -1,0 +1,10 @@
+{{#if model.editable }}
+  {{graph-picker graph_id=model.id showLeftBar="showLeftBarClick" loadGraph="loadGraph"}}
+{{else}}
+  <style type="text/css">
+  .link-tools .tool-remove { display: none }
+  .link-tools .tool-options { display: none }
+  </style>
+{{/if}}
+
+{{graph-canvas graph_id=model.id graph_editable=model.editable loadGraph="loadGraph" saveGraph="saveGraph" toggleComponentMode="toggleComponentMode" initComponent="initComponent" loadComponent="loadComponent" hideRightBar="hideRightBar" hideLeftBar="hideLeftBar" deleteComponent="deleteComponent" addComponentPort="addComponentPort" createLink="createLink" deleteLink="deleteLink" embedInstance="embedInstance"}}

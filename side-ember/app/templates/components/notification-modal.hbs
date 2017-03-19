@@ -1,0 +1,30 @@
+<div class="modal fade" {{action 'hideNotificationModal'}}>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{title}}: {{result}}</h4>
+            </div>
+            <div class="modal-body">
+                <table id="details-table" class="table-hover">
+                    <thead>
+                      <tr>
+                          <th>Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {{#each details as |detail|}}
+                        <tr>
+                            <td>{{detail}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" {{action 'hideNotificationModal'}}>Close</button>
+                <button type="button" class="btn btn-primary" {{action 'okModal'}}>OK</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,169 @@
+<div class="navbar-default pull-right container" id="component-menu" style="display: none; height: 2000px;">
+    <h2><span id="component-title">{{instance.title}}</span>
+        <small class="pull-right">
+        <span class="btn-group" role="group">
+            {{#if instance.editable}}
+              {{#if instance.deleteable}}
+                <button id="component-delete" type="button" class="btn btn-danger btn-sm" {{action 'deleteComponent'}}>
+                    <i class="fa fa-trash fa-fw"></i> Delete
+                </button>
+              {{/if}}
+              <button id="component-save" type="button" class="btn btn-primary btn-sm" {{action 'saveComponent'}}><i
+                      class="fa fa-floppy-o fa-fw"></i> Save changes
+              </button>
+            {{/if}}
+            <button id="component-discard" type="button" class="btn btn-default btn-sm" {{action 'hideRightBar'}}><i
+                    class="fa fa-times fa-fw"></i></button>
+        </span>
+        </small>
+    </h2>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                       class="">Details</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true">
+                <div class="panel-body">
+                    <div class="container col-md-12">
+                        <input type="hidden" id="component-id" value="">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="title" class="col-md-3 control-label">Title</label>
+                                <div class="col-md-9">
+                                  {{bs-input readonly=instance.readonly type="text" id="title" placeholder="Title"  value=instance.title}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="title" class="col-md-3 control-label">Template</label>
+                                <div class="col-md-9">
+                                  {{bs-input readonly="readonly" type="text" id="type" placeholder="Component"  value=instance.component.title}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="title" class="col-md-3 control-label">Template Type</label>
+                                <div class="col-md-9">
+                                  {{bs-input readonly="readonly" type="text" id="component-type" placeholder="Component Type"  value=instance.component.type.title}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="title" class="col-md-3 control-label">Mode</label>
+                                <div class="col-md-9">
+                                  {{bs-input readonly="readonly" type="text" id="mode" placeholder="Mode"  value=instance.mode}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <div id="ports-tab" class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed"
+                         aria-expanded="false">Ports</a>
+                  </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                  <div class="panel-body">
+                      <div class="container col-md-12">
+                          <div class="row">
+                              <table id="component-port-table" class="table">
+                                  <thead>
+                                  <tr>
+                                      <th>Type</th>
+                                      <th>Port</th>
+                                    {{#if instance.editable}}
+                                        <th>
+                                            <a href="javascript:$.fn.addPort('in', '', null, true);"
+                                               class="btn btn-xs pull-right btn-success"><i class="fa fa-plus"></i></a>
+                                        </th>
+                                    {{/if}}
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                    {{#each instance.ports as |port|}}
+                                      <tr class="modal-port"  name="{{port.title}}">
+                                          <td>
+                                            {{#if port.checked }}
+                                                <input type="checkbox" checked/>
+                                            {{else}}
+                                                <input type="checkbox"/>
+                                            {{/if}}
+                                          </td>
+                                          <td>
+                                            <input class="form-control input-sm" type="text" value="{{port.title}}" /><input type="hidden" value="{{port.uuid}}" />
+                                          </td>
+                                          <td>
+                                            <button class="btn btn-xs btn-danger pull-right"><i class="fa fa-trash"></i></button>
+                                          </td>
+                                      </tr>
+                                    {{/each}}
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div id="artifacts-tab" class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed"
+                         aria-expanded="false">Artifacts</a>
+                  </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
+                  <div class="panel-body">
+                      <div class="container col-md-12">
+                          <div class="row">
+                            {{bs-input type="hidden" id="rightbar-artifacts" value=instance.artifacts}}
+                              <textarea id="artifacts">{{instance.artifacts}}</textarea>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+        <div id="properties-tab" class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed"
+                       aria-expanded="false">Properties</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" aria-expanded="false">
+                <div class="panel-body pre-scrollable">
+                    <div class="container col-md-12">
+                        <div class="row">
+                          {{bs-input type="hidden" id="rightbar-properties" value=instance.properties}}
+                            <textarea id="properties">{{instance.properties}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="metrics-tab" class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed"
+                       aria-expanded="false">Metrics</a>
+                </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse" aria-expanded="false">
+                <div class="panel-body">
+                    <div class="container col-md-12">
+                        <div class="row">
+                          <p>{{instance.title}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

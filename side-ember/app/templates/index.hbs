@@ -1,0 +1,112 @@
+{{#if session.isAuthenticated}}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            <h2>Welcome to SWITCH - SIDE</h2>
+            <h2>You are logged in as <b>{{sessionAccount.account.username}}</b>, use the buttons below to go to...
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4">
+          {{#link-to 'switchcomponents'}}
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-cog fa-4x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div style="font-size: 30px">Components</div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div style="padding-top: 10px" class="col-xs-12 text-right">
+                              <div>Use our <b>Component Upload Wizard</b> to introduce your Application Components to
+                                  the <b>SWITCH Knowledge Base</b>. You can tell <b>SWITCH</b> how to interact with your
+                                  Components, allowing us to monitor, scale and recover them.
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      <span class="pull-left">Upload, Describe and Share</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </div>
+          {{/link-to}}
+        </div>
+        <div class="col-lg-4 col-md-4">
+          {{#link-to 'switchapps'}}
+              <div class="panel panel-purple">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-cogs fa-4x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div style="font-size: 30px">Applications</div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div style="padding-top: 10px" class="col-xs-12 text-right">
+                              <div>Build a fully supported Application using the <b>Application Composer</b>, allowing
+                                  <b>SWITCH</b> to integrate into your system pipeline. Define application wide
+                                  constraints on your system that will help <b>SWITCH</b> identify the right
+                                  infrastructure for you.
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      <span class="pull-left">Browse, Create and Iterate</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </div>
+          {{/link-to}}
+        </div>
+        <div class="col-lg-4 col-md-4">
+          {{#link-to 'switchappinstances'}}
+              <div class="panel panel-green">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-play-circle-o fa-4x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div style="font-size: 30px">Instances</div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div style="padding-top: 10px" class="col-xs-12 text-right">
+                              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      <span class="pull-left">Provision, Deploy and Monitor</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </div>
+          {{/link-to}}
+        </div>
+    </div>
+{{else}}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <h1>Welcome to SWITCH - SIDE</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <h3>You are not currently logged in.</h3>
+          {{#link-to 'login' class="btn btn-primary"}}Login Now{{/link-to}}
+            or {{#link-to 'register' class="btn btn-default"}}Sign Up{{/link-to}}
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,9 @@
+<ul class="nav navbar-left">
+    <li class="navbar-orange">{{#link-to 'switchtemplates'}}<i class="fa fa-cube fa-fw"></i> Templates{{/link-to}}</li>
+</ul>
+{{#if model.title}}
+<ul class="nav navbar-top-links navbar-left">
+    <p class="navbar-text"><i class="fa fa-tag fa-fw"></i> <b>{{model.title}}</b></p>
+    {{#if model.belongs_to_user}}<li>{{#link-to 'switchtemplates.edit' model}}<i class="fa fa-list fa-fw"></i> Properties{{/link-to}}</li>{{/if}}
+</ul>
+{{/if}}

@@ -1,0 +1,80 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>My Application Instances</h1>
+        </div>
+    </div>
+    <div class="row">
+      {{#each model as |switchapp|}}
+        {{#if switchapp.belongs_to_user}}
+            <div class="col-md-3">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-cogs fa-4x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-right">
+                                <div><b>{{switchapp.created_at}}</b></div>
+                            </div>
+                        </div>
+                    </div>
+                  {{#link-to 'switchappinstances.composer' switchapp}}
+                      <div class="panel-footer">
+                          <span class="pull-left">Go to application</span>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                          <div class="clearfix"></div>
+                      </div>
+                  {{/link-to}}
+                </div>
+            </div>
+        {{/if}}
+      {{/each}}
+    </div>
+</div>
+{{#if model.length}}
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="table-responsive panel-body">
+            <table id="dashboard-table" class="table">
+                <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Last Run</th>
+                    <th>Notifiactions</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each model as |switchapp|}}
+                  {{#if switchapp.belongs_to_user}}
+                      <tr class="new-message">
+                          <td><label class="btn btn-success btn-xs btn-circle"><i class="fa fa-heart fa-fw"></i></label>
+                          </td>
+                          <td>{{switchapp.title}}</td>
+                          <td>{{switchapp.description}}</td>
+                          <td></td>
+                          <td>
+                            {{#bs-button-group}}
+                              {{#link-to 'switchapps.edit' switchapp class="btn btn-primary"}}<i
+                                      class="fa fa-edit fa-fw"></i>{{/link-to}}
+                                <a class="btn btn-info" href="#" {{action "clone" switchapp}}><i class="fa fa-copy fa-fw"></i></a>
+                                <a class="btn btn-danger" href="#" {{action "remove" switchapp}}><i
+                                        class="fa fa-trash-o fa-fw"></i></a>
+                            {{/bs-button-group}}
+                          </td>
+                      </tr>
+                  {{/if}}
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <br>
+    <br>
+{{/if}}

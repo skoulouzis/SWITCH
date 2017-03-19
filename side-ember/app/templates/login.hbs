@@ -1,0 +1,17 @@
+<div class="col-md-6 col-md-offset-3">
+  <h1>Login to SIDE</h1>
+  {{#if error}}
+    {{#bs-alert type="danger"}}{{error}}{{/bs-alert}}
+  {{/if}}
+  {{#bs-form formLayout="horizontal" model=this action='authenticate' on='submit'}}
+    {{#bs-form-group}}
+        <label class="control-label">Username</label>
+      {{bs-input type="text" id='username' placeholder='Enter Login' value=username}}
+    {{/bs-form-group}}
+    {{#bs-form-group}}
+        <label class="control-label">Password</label>
+      {{bs-input type="password" id='password' placeholder='Enter Password' value=password}}
+    {{/bs-form-group}}
+    <button class="btn btn-primary" type="submit">Login</button>
+  {{/bs-form}}
+</div>

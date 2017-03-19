@@ -1,0 +1,32 @@
+<div class="col-md-6 col-md-offset-3">
+{{#if signupComplete}}
+    <h1>Sign up complete!</h1>
+
+    {{#link-to 'login' class="btn btn-primary btn-lg"}}Login Now{{/link-to}}
+{{else}}
+    <h1>Sign up to SIDE</h1>
+    <form {{action 'register' on='submit'}}>
+        <div class="form-group">
+            <label for="username">Username</label>
+          {{input id='username' placeholder='Enter Username' value=username class='form-control'}}
+        </div>
+        <div class="form-group">
+            <label for="password">Email</label>
+          {{input id='email' placeholder='Enter Email' value=email class='form-control'}}
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+          {{input id='password' placeholder='Enter Password' type='password' value=password class='form-control'}}
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+          {{input id='confirm_password' placeholder='Confirm Password' type='password' value=confirm_password class='form-control'}}
+        </div>
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+        {{#link-to 'index' class="btn btn-default pull-right"}}Cancel{{/link-to}}
+      {{#if error}}
+          <p>{{error}}</p>
+      {{/if}}
+    </form>
+{{/if}}
+</div>

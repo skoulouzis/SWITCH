@@ -1,0 +1,55 @@
+<div class="row"
+     style="background: whitesmoke; border: 1px solid lightgrey; border-bottom: 0px; padding: 5px;">
+    <div class="col-sm-2" style="text-align: center;">
+        <div class="btn-group" style="">
+            <button class="btn btn-success" {{action "showLeftBar"}} title="open component temlpate picker">
+                <i class="fa fa-search fa-fw"></i> Search Components
+            </button>
+        </div>
+    </div>
+    <div class="col-sm-6" style="text-align: center;">
+          {{#each componentTypes as |component|}}
+            {{#if component.is_component_group}}
+                <div elm-title="{{component.title}}" class="dragDiv" style="width: 250px; margin-bottom: 0px;">
+                        <div id="component-group-drag" class="btn dragElement {{component.icon_class}}"
+                             fa-code="{{component.icon_code}}"
+                             fa-d="{{component.icon_svg}}"
+                             elm-type="{{component.title}}"
+                             title="Add new {{component.title}}"
+                             comp-id="{{component.id}}"
+                             style={{component.safe_icon_style}}>
+                            <i class="fa {{component.icon_name}} fa-fw"></i>
+                        </div>
+                    <span style="padding-left: 5px;">Add new {{component.title}}</span>
+                </div>
+            {{/if}}
+          {{/each}}
+    </div>
+    <div class="col-sm-4" style="text-align: center;">
+        <div class="btn-group" style="float: right;">
+            <button class="btn btn-info" {{action "loadGraph" todo}} title="refresh graph with latest changes from database">
+                <i class="fa fa-refresh fa-fw"></i> Sync
+            </button>
+
+            {{#if is_app}}
+          <!--
+            <button class="btn btn-primary" {{action "exportGraph" todo}} title="export graph as svg">
+                <i class="fa fa-download fa-fw"></i> Export
+            </button>
+            <button class="btn btn-primary" {{action "validateGraph" todo}} title="validate application">
+                <i class="fa fa-check-square-o fa-fw"></i> Validate
+            </button>
+            -->
+            <button class="btn btn-danger" {{action "planVirtualInfrastructure" todo}} title="plan virtual infrastructure">
+                <i class="fa fa-download fa-fw"></i> Plan
+            </button>
+            <button class="btn btn-warning" {{action "provisionVirtualInfrastructure" todo}} title="provision virtual infrastructure">
+                <i class="fa fa-cloud fa-fw"></i> Provision
+            </button>
+            <button class="btn btn-success" {{action "deployApplication" todo}}>
+                <i class="fa fa-play fa-fw"></i> Deploy
+            </button>
+            {{/if}}
+        </div>
+    </div>
+</div>

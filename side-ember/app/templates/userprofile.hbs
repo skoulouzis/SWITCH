@@ -1,0 +1,53 @@
+<h2>User Files</h2>
+<br/>
+<table id="documents-table" class="table">
+    <thead>
+    <tr>
+        <th>File</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+  {{#each model.switchdocuments as |switchdocument|}}
+    {{#if switchdocument.belongs_to_user}}
+        <tr>
+            <td>{{switchdocument.file}}</td>
+            <td>{{switchdocument.description}}</td>
+            <td>{{switchdocument.document_type.name}}</td>
+            <td> <a class="btn btn-danger" href="#" {{action "remove" switchdocument}} title="Delete file"><i
+                    class="fa fa-trash-o fa-fw"></i></a></td>
+        </tr>
+      {{/if}}
+    {{/each}}
+    </tbody>
+</table>
+<hr size="5"/>
+<h3>Upload new file</h3>
+<form enctype="multipart/form-data" method="post" {{action 'uploadDocument' on='submit'}}>
+    <div class="form-group">
+        <label for="description">Description</label>
+      {{input id='description' placeholder='Enter description' value=description class='form-control'}}
+    </div>
+    <div class="form-group">
+        <label for="type">Type</label>
+        <select id="documenttype" class="form-control">
+          {{#each model.documenttypes as |item|}}
+              <option value="{{item.id}}">{{item.name}}</option>
+          {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="file">File</label>
+        <input type='file' id='file-field'/>
+    </div>
+    <button class="btn btn-primary" type="submit">Upload</button>
+</form>
+<hr size="5"/>
+<h2>Cloud providers configuration</h2>
+<a class="btn btn-success" href="#" {{action "configure_ec2account" sessionAccount.account}} title="Configure EC2 Account in provisioner"><i
+        class="fa fa-play fa-fw"></i> Configure ec2 account</a>
+
+{{outlet}}
+

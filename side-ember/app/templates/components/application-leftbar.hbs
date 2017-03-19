@@ -1,0 +1,36 @@
+<div class="navbar-default pull-left container" id="component-type-menu" style="display: block; height: 2000px;">
+    <div id="leftbar-header">
+      <h3><span id="component-title">Search Components</span>
+          <small class="pull-right">
+          <span class="btn-group" role="group">
+              <button id="component-discard" type="button" class="btn btn-default btn-sm" {{action 'hideLeftBar'}}><i
+                      class="fa fa-times fa-fw"></i></button>
+          </span>
+          </small>
+      </h3>
+
+      <div class="input-group" style="margin-bottom: 5px;">
+          <div class="input-group-addon"><i class="fa fa-filter"></i></div>
+          {{input type="text"  class="form-control" id="search-components" placeholder="Filter Components" value=searchTerm}}
+      </div>
+    </div>
+    <div id="leftbar-body" class="pre-scrollable">
+    {{model.is_template}}
+    {{#each filteredComponents as |component|}}
+        <div elm-title="{{component.title}}" class="dragDiv">
+            <div class="btn-wrap">
+                <div class="btn dragElement {{component.type.icon_class}}"
+                     elm-type="{{component.type.title}}"
+                     fa-code="{{component.type.icon_code}}"
+                     fa-d="{{component.type.icon_svg}}"
+                     title="Add new {{component.type.title}}: {{component.title}}"
+                     comp-id="{{component.id}}"
+                     style={{component.type.safe_icon_style}}>
+                    <i class="fa {{component.type.icon_name}} fa-fw"></i>
+                </div>
+            </div>
+            <span>{{component.type.title}}: {{component.title}}</span>
+        </div>
+    {{/each}}
+    </div>
+</div>

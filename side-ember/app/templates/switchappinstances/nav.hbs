@@ -1,0 +1,58 @@
+<ul class="nav navbar-left">
+    <li class="navbar-success">{{#link-to 'switchappinstances'}}<i class="fa fa-play-circle fa-fw"></i> Instances{{/link-to}}</li>
+</ul>
+{{#if model.title}}
+<ul class="nav navbar-top-links navbar-left">
+    <p class="navbar-text"><i class="fa fa-tag fa-fw"></i> <b>{{model.title}}</b></p>
+    <li>{{#link-to 'switchapps.composer' model}}<i class="fa fa-pencil fa-fw"></i> Composer{{/link-to}}</li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-bell fa-fw"></i> Notifications <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-alerts">
+            <li>
+                <a href="#">
+                    <div>
+                        <span class="btn btn-warning btn-xs btn-circle-sm btn-outline"><i class="fa fa-flag fa-fw"></i></span>
+                        <span class="small">Response Time Constraint Breached!</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-muted x-small">12 minutes ago</span>
+                    </div>
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#">
+                    <div>
+                        <span class="btn btn-success btn-xs btn-circle-sm"><i class="fa fa-code fa-fw"></i></span>
+                        <span class="small"><b>Component 2 Reconfigured</b></span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-muted x-small">4 minutes ago</span>
+                    </div>
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#">
+                    <div>
+                        <span class="btn btn-primary btn-xs btn-circle-sm"><i class="fa fa-line-chart fa-fw"></i></span>
+                        <span class="small"><b>Network Traffic Rising</b></span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-muted x-small">4 minutes ago</span>
+                    </div>
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              {{#link-to 'switchappinstances.dashboard' model class='text-center'}}
+                  <strong>See All Alerts</strong>
+                  <i class="fa fa-angle-right"></i>
+              {{/link-to}}
+            </li>
+        </ul>
+    </li>
+</ul>
+{{/if}}
