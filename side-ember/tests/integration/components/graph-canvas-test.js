@@ -1,3 +1,8 @@
+/****************************************************************************/
+/*                                Apache License                            */
+/*                          Version 2.0, January 2004                       */
+/*                       http://www.apache.org/licenses/                    */
+/****************************************************************************/
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 

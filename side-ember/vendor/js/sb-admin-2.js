@@ -1,3 +1,8 @@
+/****************************************************************************/
+/*                                Apache License                            */
+/*                          Version 2.0, January 2004                       */
+/*                       http://www.apache.org/licenses/                    */
+/****************************************************************************/
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size

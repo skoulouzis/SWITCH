@@ -1,3 +1,8 @@
+/****************************************************************************/
+/*                                Apache License                            */
+/*                          Version 2.0, January 2004                       */
+/*                       http://www.apache.org/licenses/                    */
+/****************************************************************************/
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');

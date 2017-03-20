@@ -1,3 +1,8 @@
+/****************************************************************************/
+/*                                Apache License                            */
+/*                          Version 2.0, January 2004                       */
+/*                       http://www.apache.org/licenses/                    */
+/****************************************************************************/
 var express = require('express');
 var https = require('https');
 var http = require('http');

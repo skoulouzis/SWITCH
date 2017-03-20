@@ -1,3 +1,8 @@
+##############################################################################
+#                                Apache License                              #
+#                          Version 2.0, January 2004                         #
+#                       http://www.apache.org/licenses/                      #
+##############################################################################
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 

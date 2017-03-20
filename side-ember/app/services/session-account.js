@@ -1,3 +1,8 @@
+/****************************************************************************/
+/*                                Apache License                            */
+/*                          Version 2.0, January 2004                       */
+/*                       http://www.apache.org/licenses/                    */
+/****************************************************************************/
 import Ember from 'ember';
 const { inject: { service }, RSVP } = Ember;
 export default Ember.Service.extend({

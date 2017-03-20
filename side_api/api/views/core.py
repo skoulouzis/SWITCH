@@ -1,3 +1,8 @@
+##############################################################################
+#                                Apache License                              #
+#                          Version 2.0, January 2004                         #
+#                       http://www.apache.org/licenses/                      #
+##############################################################################
 from django.http import JsonResponse
 from rest_framework import viewsets
 from rest_framework.decorators import list_route, detail_route

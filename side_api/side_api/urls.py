@@ -1,3 +1,8 @@
+##############################################################################
+#                                Apache License                              #
+#                          Version 2.0, January 2004                         #
+#                       http://www.apache.org/licenses/                      #
+##############################################################################
 """side_api URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
